@@ -1,0 +1,22 @@
+<div *ngIf="products?.length > 0; else nodata">
+        <div *ngFor="let produto of produtos" class="card card-outline-primary m-1">
+            <div class="card-header">
+                <span class="h4">{{produto.name}}
+                        <store-ratings [produto]="produto"></store-ratings>
+                </span>
+                <span class="float-right badge badge-pill badge-primary">
+                    {{produto.preco | currency:"R$":true }}
+                </span>
+            </div>
+            <div class="card-block">
+                <span class="card-text p-a-1">{{produto.descricao}}</span>
+                <button class="float-right btn btn-sm btn-success"
+                        (click)="addToCart(produto)">
+                    Addicionar no carrinho
+                </button>
+            </div>
+        </div>
+    </div>
+    <ng-template #nodata>
+        <h4 class="m-1">Aguarde a inclusão...</h4>
+    </ng-template>

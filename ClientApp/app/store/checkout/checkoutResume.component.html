@@ -1,0 +1,11 @@
+﻿<h2 class="text-center">Summary</h2>
+<div class="container">
+    <table class="table m-2">
+        <tr><th>Nome</th><td>{{order.name}}</td></tr>
+        <tr><th>Endereço</th><td>{{order.address}}</td></tr>
+        <tr><th>Produtos</th><td>{{order.cart.itemCount}}</td></tr>
+        <tr>
+            <th>Valor Total</th>
+            <td>{{order.cart.totalPrice | currency:R$:true }}</td>
+        </tr>
+    </table>

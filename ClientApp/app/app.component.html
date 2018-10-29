@@ -1,0 +1,8 @@
+<div class="bg-danger text-white text-center p-2 m-2" *ngIf="error != null">
+    <h6 *ngFor="let e of error">{{e}}</h6>
+    <button class="btn btn-warning" (click)="clearError()">OK</button>
+</div>
+<app-store-produto-list></app-store-produto-list>
+<router-outlet></router-outlet>
+
+

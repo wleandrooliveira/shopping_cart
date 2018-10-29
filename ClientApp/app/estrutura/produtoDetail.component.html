@@ -1,0 +1,18 @@
+<table class="table table-striped">
+    <tr><th colspan="2" class="bg-info">Produto</th></tr>
+    <tr><th>Nome</th><td>{{produto?.nome || 'No Data'}}</td></tr>
+    <tr>
+        <th>Descricao</th>
+        <td>{{produto?.descricao || 'No Data'}}</td>
+    </tr>
+    <tr><th>Preco</th><td>{{produto?.preco  || 'No Data'}}</td></tr>
+    <tr><th colspan="2" class="bg-info">Promocao Vendas</th></tr>
+    <tr><th>Descricao_promocao</th><td>{{produto?.PromocaoVendas?.Dscricao_promocao}}</td></tr>
+    <tr><th>Produto</th><td>{{produto?.PromocaoVendas?.Produto}}</td></tr>
+    <tr><th>Quantidade_Minima</th><td>{{produto?.PromocaoVendas?.Quantidade_Minima}}</td></tr>
+    <tr><th>Data_validade</th><td>{{produto?.PromocaoVendas?.Data_validade}}</td></tr>
+    <tr><th>Desconto</th><td>{{produto?.PromocaoVendas?.Desconto}}</td></tr>
+</table>
+<div class="text-center">
+    <button class="btn btn-primary" routerLink="/tabela">Voltar</button>
+</div>

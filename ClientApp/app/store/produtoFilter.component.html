@@ -1,0 +1,12 @@
+<div class="m-1">
+        <button class="btn btn-outline-primary btn-block"
+                (click)="setCurrentProduto(null)">
+            All Categories
+        </button>
+        <button *ngFor="let produto of produtosearch"
+                class="btn btn-outline-primary btn-block"
+                [class.active]="currentProduto == produto"
+                (click)="setCurrentProduto(produto)">
+            {{produto}}
+        </button>
+    </div>

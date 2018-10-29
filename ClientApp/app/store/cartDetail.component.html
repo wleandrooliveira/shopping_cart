@@ -1,0 +1,53 @@
+<div class="navbar bg-inverse ">
+        <a class="navbar-brand text-white">Shopping Cart</a>
+    </div>
+    <div class="m-1">
+        <h2 class="text-center">Seu Carrinho</h2>
+        <table class="table table-bordered table-striped p-1">
+    <thead> <tr>
+                    <th>Quantidade</th><th>Produto</th>
+                    <th class="text-right">Preco</th>
+                    <th class="text-right">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngIf="cart.selections.length == 0">
+                    <td colspan="4" class="text-xs-center">
+                        Seu carrinho está vazio
+    </td> </tr>
+                <tr *ngFor="let sel of cart.selections">
+                    <td>
+                        <input type="number" class="form-control-sm"
+                               style="width:5em" [(ngModel)]="sel.quantidade" />
+    </td>
+    <td>{{sel.nome}}</td>
+                <td class="text-right">
+                    {{sel.preco | currency:"R$":true:"2.2-2"}}
+                </td>
+                <td class="text-right">
+                    {{(sel.quantidade * sel.preco) | currency:"R$":true:"2.2-2" }}
+                </td>
+                <td class="text-center">
+                    <button class="btn btn-sm btn-danger"
+                            (click)="cart.updateQuantidade(sel.produtoId, 0)">
+                        Remover
+                    </button>
+</td> </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">Total:</td>
+                <td class="text-right">
+                    {{cart.totalPreco | currency:"R$":true:"2.2-2"}}
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div class="text-center">
+    <button class="btn btn-primary" routerLink="/store">Continuar Comprando</button>
+    <button class="btn btn-secondary" routerLink="/checkout"
+            [disabled]="cart.selections.length == 0">
+        Finalizar compra
+    </button>
+</div>

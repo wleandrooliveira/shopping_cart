@@ -1,0 +1,14 @@
+<table class="table table-striped">
+    <tr><th>Nome</th><th>Descricao</th><th>Preco</th><th></th></tr>
+    <tr *ngFor="let produto of produtos">
+        <td>{{produto.nome}}</td>
+        <td>{{produto.descricao}}</td>
+        <td>{{produto.preco}}</td>
+        <td>
+            <button class="btn btn-primary btn-sm"
+                [routerLink]= "['/detalhe', produto.produtoId]">
+                Detalhe
+            </button>
+        </td>
+    </tr>
+</table>
